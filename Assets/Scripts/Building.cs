@@ -123,7 +123,7 @@ public class Building : MonoBehaviour
             nextTakeStorage -= Time.deltaTime;
         else
         {
-            nextTakeStorage = 180;
+            nextTakeStorage = 120;
             GameObject workerObject = Instantiate(worker, home, Quaternion.Euler(0,0,0));
             Worker w = workerObject.GetComponent<Worker>();
             w.home = home;

@@ -66,7 +66,7 @@ MonoBehaviour:
   moneyPerSecond: 0.01
   nextTakeMoney: 1
   nextTakeResource: 60
-  nextTakeStorage: 180
+  nextTakeStorage: 120
   money: 0
   lvl: 1
   countWorkers: 1

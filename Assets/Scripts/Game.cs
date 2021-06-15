@@ -14,7 +14,7 @@ public class Game : MonoBehaviour
     public float money = 0;
     public int rock = 0, wood = 0, iron = 0, gold = 0;
 
-    [SerializeField] private string pathJson;
+    [SerializeField] private string nameJson;
     [SerializeField] private GameObject[] prefabs;
     [SerializeField] private GameObject infoPanel, storagePanel;
     [SerializeField] private TextMeshProUGUI storageText, infoText;
@@ -42,7 +42,7 @@ public class Game : MonoBehaviour
         string json = JsonUtility.ToJson(game, true);
         try
         {
-            File.WriteAllText(pathJson, json);
+            File.WriteAllText(Application.persistentDataPath + $"/{nameJson}", json);
         }
         catch(Exception e)
         {
@@ -51,11 +51,11 @@ public class Game : MonoBehaviour
     }
     private void Load()
     {
-        if (File.Exists(pathJson))
+        if (File.Exists(Application.persistentDataPath + $"/{nameJson}"))
         {
             try
             {
-                string json = File.ReadAllText(pathJson);
+                string json = File.ReadAllText(Application.persistentDataPath + $"/{nameJson}");
 
                 GameStruct game = JsonUtility.FromJson<GameStruct>(json);
                 grid = ConvertArray(game.grid); money = game.money; rock = game.rock; wood = game.wood; iron = game.iron; gold = game.gold; buildings = game.buildings;
